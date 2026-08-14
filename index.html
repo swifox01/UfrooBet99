@@ -1,1 +1,552 @@
-Ufro
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🎰 UfrooBet99 💰</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, 'Segoe UI', 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2e0b0b 0%, #4e1b1b 50%, #2e0b0b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .offer-card {
+            background: rgba(45, 15, 15, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 2.5rem;
+            border: 1px solid rgba(255, 180, 130, 0.5);
+            padding: 2.2rem 2rem;
+            max-width: 1400px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 170, 120, 0.3) inset, 0 0 40px rgba(226, 138, 43, 0.3);
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #ffb07d, #ff9d6b, #ffd166);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.3rem;
+        }
+        h1 i { background: none; font-size: 2.2rem; color: #ffd4aa; filter: drop-shadow(0 0 8px #ffb07d); -webkit-text-fill-color: #ffd4aa; }
+        .sub-head {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #ffd4b8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border-bottom: 1px dashed rgba(255, 180, 130, 0.5);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        .popup-settings-wrapper { text-align: center; margin-bottom: 1rem; }
+        .popup-settings-btn {
+            background: linear-gradient(135deg, #ff9800, #f44336);
+            border: none;
+            border-radius: 40px;
+            padding: 12px 28px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .popup-settings-btn:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(255, 152, 0, 0.8); }
+        .popup-note { display: block; color: #ffcc80; font-size: 0.8rem; margin-top: 6px; }
+        .settings-panel {
+            background: rgba(70, 20, 20, 0.5);
+            border-radius: 20px;
+            padding: 15px 20px;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border: 1px solid #ffb47a44;
+        }
+        .settings-panel label { color: #ffd4aa; font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
+        .settings-panel input {
+            width: 70px;
+            padding: 8px 12px;
+            border-radius: 30px;
+            border: 2px solid #ffb07d;
+            background: #2e0b0b;
+            color: #ffd166;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+        }
+        .settings-panel input:focus { border-color: #ffd166; box-shadow: 0 0 12px #ffd16655; }
+        .save-btn {
+            background: linear-gradient(135deg, #d6a006, #52400d);
+            border: none;
+            border-radius: 30px;
+            padding: 8px 18px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .save-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px #d6a006; }
+        .auto-click-wrapper { text-align: center; margin-bottom: 1.5rem; }
+        .auto-click-btn {
+            background: linear-gradient(135deg, #ff9d6b, #ffb07d);
+            border: none;
+            border-radius: 60px;
+            padding: 1rem 2.5rem;
+            color: #2e0b0b;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 157, 107, 0.6);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        .auto-click-btn:hover { transform: scale(1.05); box-shadow: 0 0 50px rgba(255, 157, 107, 0.9); }
+        .auto-click-btn:disabled { background: #555; cursor: not-allowed; box-shadow: none; opacity: 0.6; color: #ccc; }
+        .auto-status { display: block; margin-top: 10px; color: #ffd166; font-weight: 600; font-size: 0.95rem; min-height: 22px; }
+        .click-dashboard {
+            background: rgba(70, 20, 20, 0.6);
+            border-radius: 60px;
+            padding: 0.8rem 2rem;
+            margin-bottom: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px 25px;
+            border: 1px solid #ffb47a66;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 180, 122, 0.2);
+        }
+        .total-clicks { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.3rem; color: #ffe2e2; }
+        .total-clicks i { font-size: 2rem; color: #ffd4b3; filter: drop-shadow(0 0 6px #ff9d6b); }
+        .click-badge {
+            background: #2e0b0bcc;
+            backdrop-filter: blur(4px);
+            padding: 8px 28px;
+            border-radius: 50px;
+            border: 1px solid #ffd166;
+            box-shadow: 0 0 15px #ffd16633;
+        }
+        .click-badge span { font-weight: 800; font-size: 2.2rem; color: #ffd166; margin-left: 10px; letter-spacing: 1px; }
+        .legend { display: flex; gap: 20px; font-size: 0.9rem; font-weight: 500; }
+        .legend-item { display: flex; align-items: center; gap: 8px; }
+        .legend-dot { width: 16px; height: 16px; border-radius: 20px; background: #dd7a4e; box-shadow: 0 0 8px #ffb07d; }
+        .legend-dot.used { background: #d6a006; box-shadow: 0 0 12px #d6a006; }
+        .btn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
+        .offer-btn {
+            background: linear-gradient(135deg, #6b1e1e, #481515);
+            border: none;
+            border-radius: 60px;
+            padding: 0.85rem 0.6rem;
+            color: #ffeded;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 0 0 1.5px #bf5a2c inset;
+            width: 100%;
+            text-decoration: none;
+            position: relative;
+            border: 1px solid #dd7a4e55;
+        }
+        .offer-btn i { font-size: 1.2rem; color: #ffd4b3; }
+        .click-counter {
+            background: #2e0b0b;
+            border-radius: 40px;
+            padding: 2px 10px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #ffd166;
+            border: 1px solid #ffb347;
+            margin-left: 4px;
+        }
+        .offer-btn.clicked { background: linear-gradient(135deg, #52400d, #3b2e07); border: 1.5px solid #d6a006; box-shadow: 0 0 18px #d6a006, 0 0 0 1.5px #ffd166 inset; }
+        .offer-btn.clicked i { color: #ffea9f; }
+        .offer-btn.clicked .click-counter { background: #33280a; color: #ffeaa6; border-color: #ffd966; }
+        .offer-btn:hover { transform: translateY(-4px) scale(1.03); background: linear-gradient(135deg, #a02c2c, #6b1e1e); box-shadow: 0 18px 28px -8px black, 0 0 0 2.5px #ffd4aa inset; }
+        .section-label { font-size: 1.15rem; margin: 18px 0 8px; color: #ffd4aa; display: flex; align-items: center; gap: 10px; font-weight: 600; }
+        .section-label i { color: #ffd4b3; }
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: #ffd4b2;
+            border-top: 1px solid #ffb47a66;
+            padding-top: 1.4rem;
+            font-size: 0.9rem;
+        }
+        .reset-link {
+            background: none;
+            border: 1.5px solid #ffd4aa;
+            padding: 8px 22px;
+            border-radius: 50px;
+            color: #ffe0d6;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        .reset-link:hover { background: #ffb47a30; border-color: #ffd166; color: #ffeaaf; }
+        @media (max-width: 700px) {
+            .offer-card { padding: 1.5rem 1.2rem; }
+            h1 { font-size: 2rem; }
+            .click-dashboard { flex-direction: column; align-items: stretch; border-radius: 40px; padding: 1.2rem; }
+            .btn-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+            .offer-btn { padding: 0.7rem 0.5rem; font-size: 0.8rem; }
+            .auto-click-btn { font-size: 1rem; padding: 0.8rem 1.8rem; }
+            .settings-panel { flex-direction: column; gap: 10px; }
+            .popup-settings-btn { font-size: 0.9rem; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+<div class="offer-card">
+    <h1><i class="fas fa-dice"></i> UfrooBet99 <i class="fas fa-coins"></i></h1>
+    <div class="sub-head"><i class="fas fa-ticket-alt"></i> 104 BETTING OFFERS · ALL ACTIVE <i class="fas fa-trophy"></i></div>
+
+    <!-- POPUP SETTINGS BUTTON -->
+    <div class="popup-settings-wrapper">
+        <button class="popup-settings-btn" onclick="openPopupSettings()"><i class="fas fa-cog"></i> ⚠️ ALLOW POPUPS FIRST (OPEN SETTINGS)</button>
+        <span class="popup-note">Click → Copy URL → Open new tab → Paste → Allow → Then START</span>
+    </div>
+
+    <!-- SETTINGS PANEL -->
+    <div class="settings-panel">
+        <label for="roundInput">🔄 ROUNDS:</label>
+        <input type="number" id="roundInput" value="3" min="1" max="100" onchange="saveRoundSetting()">
+        <button class="save-btn" onclick="saveRoundSetting()">💾 SAVE</button>
+        <span style="color:#06d6a0;font-size:0.85rem;" id="saveConfirm"></span>
+    </div>
+
+    <!-- AUTO CLICK BUTTON -->
+    <div class="auto-click-wrapper">
+        <button class="auto-click-btn" id="autoClickBtn" onclick="startAutoClick()">🚀 START AUTO CLICK</button>
+        <div class="auto-status" id="autoStatus">Ready · <span id="roundDisplay">3</span> round(s)</div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="click-dashboard">
+        <div class="total-clicks"><i class="fas fa-chart-pie"></i><span>🎰 TOTAL CLAIMS</span></div>
+        <div class="click-badge"><i class="fas fa-fingerprint"></i> <span id="globalCounter">0</span></div>
+        <div class="legend"><div class="legend-item"><span class="legend-dot"></span> available</div><div class="legend-item"><span class="legend-dot used"></span> claimed</div></div>
+    </div>
+
+    <!-- ALL 104 OFFERS (LINKS REPLACED) -->
+    <div class="section-label"><i class="fas fa-star"></i> 🎲 JACKPOT DEALS & WINNINGS 💵 <i class="fas fa-star"></i></div>
+    <div class="btn-grid" id="offerGrid">
+        <!-- 1 -->
+        <a href="https://widthwidowzoology.com/ptfra5i8?key=31b4843c5d3ff7609cc6545fe9f9eab9" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_1" bn="1"><i class="fas fa-dice"></i> BET 1 <span class="click-counter" id="count_1">0</span></a>
+        <!-- 2 -->
+        <a href="https://widthwidowzoology.com/z4qi4q51?key=bd85a9783a33d43a6496a31c4313dd1a" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_2" bn="2"><i class="fas fa-coins"></i> BET 2 <span class="click-counter" id="count_2">0</span></a>
+        <!-- 3 -->
+        <a href="https://widthwidowzoology.com/c9d823y3?key=589ce2713fff6a8bd5faf8bb3f2b0d30" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_3" bn="3"><i class="fas fa-trophy"></i> BET 3 <span class="click-counter" id="count_3">0</span></a>
+        <!-- 4 -->
+        <a href="https://widthwidowzoology.com/sfpqs6f9y8?key=f34aa113851417a9f274366ac0c3b915" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_4" bn="4"><i class="fas fa-gem"></i> BET 4 <span class="click-counter" id="count_4">0</span></a>
+        <!-- 5 -->
+        <a href="https://widthwidowzoology.com/tmxaipvb8v?key=e9764fd40b278120351d0e548d744cb9" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_5" bn="5"><i class="fas fa-crown"></i> BET 5 <span class="click-counter" id="count_5">0</span></a>
+        <!-- 6 -->
+        <a href="https://widthwidowzoology.com/c170pt345?key=dbb764609a43fac16ada8c125e62b2dd" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_6" bn="6"><i class="fas fa-star"></i> BET 6 <span class="click-counter" id="count_6">0</span></a>
+        <!-- 7 -->
+        <a href="https://widthwidowzoology.com/h14jms3k80?key=3cc3a33f6aed39392ff0cea28f4b4339" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_7" bn="7"><i class="fas fa-fire"></i> BET 7 <span class="click-counter" id="count_7">0</span></a>
+        <!-- 8 -->
+        <a href="https://widthwidowzoology.com/wtuqewss?key=dee1a1e1859dbf4d558b5a6703d8eb0f" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_8" bn="8"><i class="fas fa-bolt"></i> BET 8 <span class="click-counter" id="count_8">0</span></a>
+        <!-- 9 -->
+        <a href="https://widthwidowzoology.com/hxicijkjn7?key=d194d4515a5052b584c9aa1d08e568a9" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_9" bn="9"><i class="fas fa-diamond"></i> BET 9 <span class="click-counter" id="count_9">0</span></a>
+        <!-- 10 -->
+        <a href="https://widthwidowzoology.com/ufx1zn7b?key=1d36807ef4c2d1987f473e487d325c42" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_10" bn="10"><i class="fas fa-heart"></i> BET 10 <span class="click-counter" id="count_10">0</span></a>
+        <!-- 11 -->
+        <a href="https://widthwidowzoology.com/uqc46b2z?key=eccf4e0110583a07bc55a37b54218034" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_11" bn="11"><i class="fas fa-clover"></i> BET 11 <span class="click-counter" id="count_11">0</span></a>
+        <!-- 12 -->
+        <a href="https://widthwidowzoology.com/ra52ne8hs7?key=dfded2a6f270a88a648d22df7653f885" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_12" bn="12"><i class="fas fa-horseshoe"></i> BET 12 <span class="click-counter" id="count_12">0</span></a>
+        <!-- 13 -->
+        <a href="https://widthwidowzoology.com/wv0t36kp3?key=24acde64491ab5b3b1d9b07013c6851c" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_13" bn="13"><i class="fas fa-ticket-alt"></i> BET 13 <span class="click-counter" id="count_13">0</span></a>
+        <!-- 14 -->
+        <a href="https://widthwidowzoology.com/tfi8iu99k?key=e4b1d2954cd68e0461db2781cc46f26f" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_14" bn="14"><i class="fas fa-money-bill-wave"></i> BET 14 <span class="click-counter" id="count_14">0</span></a>
+        <!-- 15 -->
+        <a href="https://widthwidowzoology.com/zkhmh0ijx?key=af97d8a97e4f76096ba37d7e95a21c7a" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_15" bn="15"><i class="fas fa-piggy-bank"></i> BET 15 <span class="click-counter" id="count_15">0</span></a>
+        <!-- 16 -->
+        <a href="https://widthwidowzoology.com/syz5f923?key=c9b5cac3e665fc4a6810b1de780f94ad" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_16" bn="16"><i class="fas fa-dollar-sign"></i> BET 16 <span class="click-counter" id="count_16">0</span></a>
+        <!-- 17 -->
+        <a href="https://widthwidowzoology.com/i4ac5e1k8p?key=a8b1b5b1a5772fb11611f837d8c86cd4" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_17" bn="17"><i class="fas fa-euro-sign"></i> BET 17 <span class="click-counter" id="count_17">0</span></a>
+        <!-- 18 -->
+        <a href="https://widthwidowzoology.com/h1quz868y?key=1bdbed57d4dd7905cc68cb551c68bd78" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_18" bn="18"><i class="fas fa-pound-sign"></i> BET 18 <span class="click-counter" id="count_18">0</span></a>
+        <!-- 19 -->
+        <a href="https://widthwidowzoology.com/f04mjw8k?key=6d170e0ce2753d8b5d68fcf82c8fbfef" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_19" bn="19"><i class="fas fa-yen-sign"></i> BET 19 <span class="click-counter" id="count_19">0</span></a>
+        <!-- 20 -->
+        <a href="https://widthwidowzoology.com/bwe0mxu83z?key=5982e46e26068a7c9b72a6aea8eb03f2" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_20" bn="20"><i class="fas fa-rupee-sign"></i> BET 20 <span class="click-counter" id="count_20">0</span></a>
+        <!-- 21 -->
+        <a href="https://widthwidowzoology.com/f1c1zim3zb?key=4d8262353236a8fa12c86c312f4800c1" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_21" bn="21"><i class="fas fa-dice-d6"></i> BET 21 <span class="click-counter" id="count_21">0</span></a>
+        <!-- 22 -->
+        <a href="https://widthwidowzoology.com/pvv20zms4?key=7f60b844001df2f39fd4c7bcc6bccc53" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_22" bn="22"><i class="fas fa-dice-d20"></i> BET 22 <span class="click-counter" id="count_22">0</span></a>
+        <!-- 23 -->
+        <a href="https://widthwidowzoology.com/qd3d65hn?key=cf856bc8450d5900d978f8b666bc9c32" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_23" bn="23"><i class="fas fa-chess-king"></i> BET 23 <span class="click-counter" id="count_23">0</span></a>
+        <!-- 24 -->
+        <a href="https://widthwidowzoology.com/zabiec5ksj?key=e5abf376c6c74d7cc76f2f3c89322236" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_24" bn="24"><i class="fas fa-chess-queen"></i> BET 24 <span class="click-counter" id="count_24">0</span></a>
+        <!-- 25 -->
+        <a href="https://widthwidowzoology.com/rzi1wcmkb?key=6e74686b81fb38373c6b578a1ad49443" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_25" bn="25"><i class="fas fa-chess-rook"></i> BET 25 <span class="click-counter" id="count_25">0</span></a>
+        <!-- 26 -->
+        <a href="https://widthwidowzoology.com/buu5sm69?key=7f0b76491131d7db462ee73c0bca2c0c" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_26" bn="26"><i class="fas fa-chess-bishop"></i> BET 26 <span class="click-counter" id="count_26">0</span></a>
+        <!-- 27 -->
+        <a href="https://widthwidowzoology.com/dvkbj8vi?key=494b4e0e6f49aceb3ae59da82d97e772" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_27" bn="27"><i class="fas fa-chess-knight"></i> BET 27 <span class="click-counter" id="count_27">0</span></a>
+        <!-- 28 -->
+        <a href="https://widthwidowzoology.com/kxb3xey0q1?key=8fca32ff16f779c9b3f17f48212c802e" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_28" bn="28"><i class="fas fa-chess-pawn"></i> BET 28 <span class="click-counter" id="count_28">0</span></a>
+        <!-- 29 -->
+        <a href="https://widthwidowzoology.com/gcy9k8rbs?key=5bc8947a7f75ef3b366e4a315bb5a327" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_29" bn="29"><i class="fas fa-chess"></i> BET 29 <span class="click-counter" id="count_29">0</span></a>
+        <!-- 30 -->
+        <a href="https://widthwidowzoology.com/ykxhh66mtf?key=2e349f353830399aa7fc2911cf6bb11e" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_30" bn="30"><i class="fas fa-dice-five"></i> BET 30 <span class="click-counter" id="count_30">0</span></a>
+        <!-- 31 -->
+        <a href="https://widthwidowzoology.com/wnh82niar1?key=b1beaa5630f1563b62ff797252792e40" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_31" bn="31"><i class="fas fa-dice-six"></i> BET 31 <span class="click-counter" id="count_31">0</span></a>
+        <!-- 32 -->
+        <a href="https://widthwidowzoology.com/j8hqj6x98t?key=4504af83ebc46bf1b970a2df93da2084" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_32" bn="32"><i class="fas fa-dice-one"></i> BET 32 <span class="click-counter" id="count_32">0</span></a>
+        <!-- 33 -->
+        <a href="https://widthwidowzoology.com/iuaebj7hrt?key=e8c2bc5b844dbd9b6b430593e0376599" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_33" bn="33"><i class="fas fa-dice-two"></i> BET 33 <span class="click-counter" id="count_33">0</span></a>
+        <!-- 34 -->
+        <a href="https://widthwidowzoology.com/hzq9kd1ig?key=6c159a610206b937dcfa1eb100c8d1a1" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_34" bn="34"><i class="fas fa-dice-three"></i> BET 34 <span class="click-counter" id="count_34">0</span></a>
+        <!-- 35 -->
+        <a href="https://widthwidowzoology.com/ecxdgi82fq?key=a5305c821fdcda005e86ff6f7f730a73" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_35" bn="35"><i class="fas fa-dice-four"></i> BET 35 <span class="click-counter" id="count_35">0</span></a>
+        <!-- 36 -->
+        <a href="https://widthwidowzoology.com/dz6iqks79?key=2f2fc77b27852e037340d38f30e163c1" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_36" bn="36"><i class="fas fa-dice-d6"></i> BET 36 <span class="click-counter" id="count_36">0</span></a>
+        <!-- 37 -->
+        <a href="https://widthwidowzoology.com/h82k9srdh?key=bd3f8312d54e31a103a4d3e0690b77d4" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_37" bn="37"><i class="fas fa-dice-d20"></i> BET 37 <span class="click-counter" id="count_37">0</span></a>
+        <!-- 38 -->
+        <a href="https://widthwidowzoology.com/ku6irz6q?key=a4cee28235e92e6e391a2cbcaae49237" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_38" bn="38"><i class="fas fa-gamepad"></i> BET 38 <span class="click-counter" id="count_38">0</span></a>
+        <!-- 39 -->
+        <a href="https://widthwidowzoology.com/szzn10ziv?key=8c947895e402cf1889e96088f2179c24" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_39" bn="39"><i class="fas fa-vr-cardboard"></i> BET 39 <span class="click-counter" id="count_39">0</span></a>
+        <!-- 40 -->
+        <a href="https://widthwidowzoology.com/pjgp78kfg?key=816aaf49920faca85af5a9bc9d53cf03" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_40" bn="40"><i class="fas fa-headset"></i> BET 40 <span class="click-counter" id="count_40">0</span></a>
+        <!-- 41 -->
+        <a href="https://widthwidowzoology.com/a1qhufwx?key=f969b2d17109f53a709abdb6acb010c0" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_41" bn="41"><i class="fas fa-chart-line"></i> BET 41 <span class="click-counter" id="count_41">0</span></a>
+        <!-- 42 -->
+        <a href="https://widthwidowzoology.com/urhwju14?key=6ffac790f65dc7237573ffc917884f26" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_42" bn="42"><i class="fas fa-chart-bar"></i> BET 42 <span class="click-counter" id="count_42">0</span></a>
+        <!-- 43 -->
+        <a href="https://widthwidowzoology.com/a917aqjv9x?key=12211cad4cd639e46281bcc281d9ef83" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_43" bn="43"><i class="fas fa-chart-pie"></i> BET 43 <span class="click-counter" id="count_43">0</span></a>
+        <!-- 44 -->
+        <a href="https://widthwidowzoology.com/s8tz843r?key=5dfa1f5684d7132022bb119e1382cd6c" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_44" bn="44"><i class="fas fa-percent"></i> BET 44 <span class="click-counter" id="count_44">0</span></a>
+        <!-- 45 -->
+        <a href="https://widthwidowzoology.com/ewfkz2vq?key=0d00dfd748ae3469a30fa48eddf1c149" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_45" bn="45"><i class="fas fa-calculator"></i> BET 45 <span class="click-counter" id="count_45">0</span></a>
+        <!-- 46 -->
+        <a href="https://widthwidowzoology.com/yavkwzyxrr?key=eb5aaa6c092b9052f7dede8f17ea323f" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_46" bn="46"><i class="fas fa-clock"></i> BET 46 <span class="click-counter" id="count_46">0</span></a>
+        <!-- 47 -->
+        <a href="https://widthwidowzoology.com/bsukpifgrz?key=eaed4639f0476f2a41fd3d6857081d2f" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_47" bn="47"><i class="fas fa-hourglass-half"></i> BET 47 <span class="click-counter" id="count_47">0</span></a>
+        <!-- 48 -->
+        <a href="https://widthwidowzoology.com/ujbyh3k0?key=b3bfaee0e24080439de50c1033dc81ea" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_48" bn="48"><i class="fas fa-hourglass-end"></i> BET 48 <span class="click-counter" id="count_48">0</span></a>
+        <!-- 49 -->
+        <a href="https://widthwidowzoology.com/x6nv8pgq?key=fb40b30cc08f295f01e4645a942f592a" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_49" bn="49"><i class="fas fa-flag-checkered"></i> BET 49 <span class="click-counter" id="count_49">0</span></a>
+        <!-- 50 -->
+        <a href="https://widthwidowzoology.com/pv0eyxvs?key=f077677dc629c452fce9cadae41e6b17" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_50" bn="50"><i class="fas fa-medal"></i> BET 50 <span class="click-counter" id="count_50">0</span></a>
+        <!-- 51 -->
+        <a href="https://widthwidowzoology.com/kgfm19bh?key=f88d80f016d3485107fb1de57344d09d" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_51" bn="51"><i class="fas fa-award"></i> BET 51 <span class="click-counter" id="count_51">0</span></a>
+        <!-- 52 -->
+        <a href="https://widthwidowzoology.com/uv8nigpv?key=f5d7c60a9679855a028ad4174daf2993" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_52" bn="52"><i class="fas fa-certificate"></i> BET 52 <span class="click-counter" id="count_52">0</span></a>
+        <!-- 53 -->
+        <a href="https://widthwidowzoology.com/s6w59trt?key=cb154b86a149625a3604003bab8e8bfc" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_53" bn="53"><i class="fas fa-star-half-alt"></i> BET 53 <span class="click-counter" id="count_53">0</span></a>
+        <!-- 54 -->
+        <a href="https://widthwidowzoology.com/w68gp80y?key=1679828bd0667f804e38f2bfc09b097b" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_54" bn="54"><i class="fas fa-tags"></i> BET 54 <span class="click-counter" id="count_54">0</span></a>
+        <!-- 55 -->
+        <a href="https://widthwidowzoology.com/reakt2s7?key=16b35a84d3dcdd15aa6af252cb481af2" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_55" bn="55"><i class="fas fa-tag"></i> BET 55 <span class="click-counter" id="count_55">0</span></a>
+        <!-- 56 -->
+        <a href="https://widthwidowzoology.com/ehx8wjdx6?key=fafff0a1c4f79a8a85efe89d20ca8463" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_56" bn="56"><i class="fas fa-dice"></i> BET 56 <span class="click-counter" id="count_56">0</span></a>
+        <!-- 57 -->
+        <a href="https://widthwidowzoology.com/isi3vqzv?key=9860752087711a4cfdb6311aff409083" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_57" bn="57"><i class="fas fa-coins"></i> BET 57 <span class="click-counter" id="count_57">0</span></a>
+        <!-- 58 -->
+        <a href="https://widthwidowzoology.com/qcbbyq6jv4?key=65c55f2a56f37f1da11c99f33da7cda7" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_58" bn="58"><i class="fas fa-trophy"></i> BET 58 <span class="click-counter" id="count_58">0</span></a>
+        <!-- 59 -->
+        <a href="https://widthwidowzoology.com/ace93n9txm?key=a915cf11ebb2496597768c2c74f0e106" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_59" bn="59"><i class="fas fa-gem"></i> BET 59 <span class="click-counter" id="count_59">0</span></a>
+        <!-- 60 -->
+        <a href="https://widthwidowzoology.com/iiumt5fpcu?key=a11109b14d57be6c20ca160e966410e4" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_60" bn="60"><i class="fas fa-crown"></i> BET 60 <span class="click-counter" id="count_60">0</span></a>
+        <!-- 61 -->
+        <a href="https://widthwidowzoology.com/abbch4ucuc?key=2577398b1c3d751d6c6773d89b6961ec" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_61" bn="61"><i class="fas fa-star"></i> BET 61 <span class="click-counter" id="count_61">0</span></a>
+        <!-- 62 -->
+        <a href="https://widthwidowzoology.com/tbm64cks?key=e87af98e679cc8fd07b76506f85d6e34" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_62" bn="62"><i class="fas fa-fire"></i> BET 62 <span class="click-counter" id="count_62">0</span></a>
+        <!-- 63 -->
+        <a href="https://widthwidowzoology.com/k06rtc2r?key=33736d2e741b4bdd073bd718a3be521e" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_63" bn="63"><i class="fas fa-bolt"></i> BET 63 <span class="click-counter" id="count_63">0</span></a>
+        <!-- 64 -->
+        <a href="https://widthwidowzoology.com/hdz3tbxg61?key=5f280006338708a95dff6f79f2cfb08d" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_64" bn="64"><i class="fas fa-diamond"></i> BET 64 <span class="click-counter" id="count_64">0</span></a>
+        <!-- 65 -->
+        <a href="https://widthwidowzoology.com/f2u4kfb4a?key=9548f89775bc437b1da9db9d11a3c980" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_65" bn="65"><i class="fas fa-heart"></i> BET 65 <span class="click-counter" id="count_65">0</span></a>
+        <!-- 66 -->
+        <a href="https://widthwidowzoology.com/a7w9bb4v?key=e1c8c0b4173d6917dfd6253387753806" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_66" bn="66"><i class="fas fa-clover"></i> BET 66 <span class="click-counter" id="count_66">0</span></a>
+        <!-- 67 -->
+        <a href="https://widthwidowzoology.com/sa03i8dmn?key=ed3ddc934bc21a54c911edce237f6e3b" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_67" bn="67"><i class="fas fa-horseshoe"></i> BET 67 <span class="click-counter" id="count_67">0</span></a>
+        <!-- 68 -->
+        <a href="https://widthwidowzoology.com/aspef925?key=3d17a585a24c26add8d2ab2c86819b77" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_68" bn="68"><i class="fas fa-ticket-alt"></i> BET 68 <span class="click-counter" id="count_68">0</span></a>
+        <!-- 69 -->
+        <a href="https://widthwidowzoology.com/pnm1ep2b?key=a08711a9669e9aa7704ccda7d0c68bf9" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_69" bn="69"><i class="fas fa-money-bill-wave"></i> BET 69 <span class="click-counter" id="count_69">0</span></a>
+        <!-- 70 -->
+        <a href="https://widthwidowzoology.com/gjv96k474?key=6bc591d815e20437f194099a6772c91a" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_70" bn="70"><i class="fas fa-piggy-bank"></i> BET 70 <span class="click-counter" id="count_70">0</span></a>
+        <!-- 71 -->
+        <a href="https://widthwidowzoology.com/hvrg90nc?key=9416d0c060cae8e1c2b4d249938ccede" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_71" bn="71"><i class="fas fa-dollar-sign"></i> BET 71 <span class="click-counter" id="count_71">0</span></a>
+        <!-- 72 -->
+        <a href="https://widthwidowzoology.com/b8qxzvs2d?key=e2b6442ccaa486f42a42503ecc9788d7" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_72" bn="72"><i class="fas fa-euro-sign"></i> BET 72 <span class="click-counter" id="count_72">0</span></a>
+        <!-- 73 -->
+        <a href="https://widthwidowzoology.com/irxspwiij?key=1bbb4059a703a60b91c9833f96aee325" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_73" bn="73"><i class="fas fa-pound-sign"></i> BET 73 <span class="click-counter" id="count_73">0</span></a>
+        <!-- 74 -->
+        <a href="https://widthwidowzoology.com/azhtkq1v?key=b597a239b23c3c1bbf216b6b57dc0ffc" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_74" bn="74"><i class="fas fa-yen-sign"></i> BET 74 <span class="click-counter" id="count_74">0</span></a>
+        <!-- 75 -->
+        <a href="https://widthwidowzoology.com/n7ce0qsk?key=ca62bc404bfc2bbb54f90ee02be214a3" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_75" bn="75"><i class="fas fa-rupee-sign"></i> BET 75 <span class="click-counter" id="count_75">0</span></a>
+        <!-- 76 -->
+        <a href="https://widthwidowzoology.com/pmmt1sxip?key=a26c8fee49397980a726d3c021b3f94e" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_76" bn="76"><i class="fas fa-dice-d6"></i> BET 76 <span class="click-counter" id="count_76">0</span></a>
+        <!-- 77 -->
+        <a href="https://widthwidowzoology.com/aijkvpd2?key=23e0662bf12ffdcf0978105fac9ce6dd" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_77" bn="77"><i class="fas fa-dice-d20"></i> BET 77 <span class="click-counter" id="count_77">0</span></a>
+        <!-- 78 -->
+        <a href="https://widthwidowzoology.com/k5pzuxszm7?key=21dbc496dbf038d76145221ab2509dee" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_78" bn="78"><i class="fas fa-chess-king"></i> BET 78 <span class="click-counter" id="count_78">0</span></a>
+        <!-- 79 -->
+        <a href="https://widthwidowzoology.com/gtjkptwi?key=680c4c7e8f44b295454d85d5d0187e51" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_79" bn="79"><i class="fas fa-chess-queen"></i> BET 79 <span class="click-counter" id="count_79">0</span></a>
+        <!-- 80 -->
+        <a href="https://widthwidowzoology.com/vx99zbcyz?key=06aa7d9d1387c0241d010bdbc8822ea1" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_80" bn="80"><i class="fas fa-chess-rook"></i> BET 80 <span class="click-counter" id="count_80">0</span></a>
+        <!-- 81 -->
+        <a href="https://widthwidowzoology.com/mzjb9v0xwi?key=ea9ece6e1a01009155beda1b3d2cf323" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_81" bn="81"><i class="fas fa-chess-bishop"></i> BET 81 <span class="click-counter" id="count_81">0</span></a>
+        <!-- 82 -->
+        <a href="https://widthwidowzoology.com/gewnwypdhp?key=5849aaebb62307f8a670b767ea1a9aae" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_82" bn="82"><i class="fas fa-chess-knight"></i> BET 82 <span class="click-counter" id="count_82">0</span></a>
+        <!-- 83 -->
+        <a href="https://widthwidowzoology.com/e33y471gi2?key=5cc058b9c326b23e10dec71cba95b56d" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_83" bn="83"><i class="fas fa-chess-pawn"></i> BET 83 <span class="click-counter" id="count_83">0</span></a>
+        <!-- 84 -->
+        <a href="https://widthwidowzoology.com/fq9hdweb?key=0e33dbd7160fdabd2d9ff290994a89b6" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_84" bn="84"><i class="fas fa-chess"></i> BET 84 <span class="click-counter" id="count_84">0</span></a>
+        <!-- 85 -->
+        <a href="https://widthwidowzoology.com/pzfvt8ayb?key=97684ca3645db2ad2ecfae25d760d62f" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_85" bn="85"><i class="fas fa-dice-five"></i> BET 85 <span class="click-counter" id="count_85">0</span></a>
+        <!-- 86 -->
+        <a href="https://widthwidowzoology.com/xhctu7f9mp?key=f5f593a3c9396639bf38617e52b1d7f3" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_86" bn="86"><i class="fas fa-dice-six"></i> BET 86 <span class="click-counter" id="count_86">0</span></a>
+        <!-- 87 -->
+        <a href="https://widthwidowzoology.com/gy8fx9wb9x?key=301cb8bea0b3c1eac8e7816312059982" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_87" bn="87"><i class="fas fa-dice-one"></i> BET 87 <span class="click-counter" id="count_87">0</span></a>
+        <!-- 88 -->
+        <a href="https://widthwidowzoology.com/qsxjzazw1?key=fb498059228322c6d99a27d63b27ac24" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_88" bn="88"><i class="fas fa-dice-two"></i> BET 88 <span class="click-counter" id="count_88">0</span></a>
+        <!-- 89 -->
+        <a href="https://widthwidowzoology.com/qux2n1875?key=a07f403def3eae32f2337cd124889545" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_89" bn="89"><i class="fas fa-dice-three"></i> BET 89 <span class="click-counter" id="count_89">0</span></a>
+        <!-- 90 -->
+        <a href="https://widthwidowzoology.com/q0fm5pqi3?key=b9627ccefb033b66cb0d508bfac5ac46" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_90" bn="90"><i class="fas fa-dice-four"></i> BET 90 <span class="click-counter" id="count_90">0</span></a>
+        <!-- 91 -->
+        <a href="https://widthwidowzoology.com/n9euwuket?key=ad101204c5aeb19b1b04f6ae0c6bbc00" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_91" bn="91"><i class="fas fa-dice-d6"></i> BET 91 <span class="click-counter" id="count_91">0</span></a>
+        <!-- 92 -->
+        <a href="https://widthwidowzoology.com/umw1kp4ixm?key=87fd1db0d4bb52184a2157e4adcaedc6" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_92" bn="92"><i class="fas fa-dice-d20"></i> BET 92 <span class="click-counter" id="count_92">0</span></a>
+        <!-- 93 -->
+        <a href="https://widthwidowzoology.com/ww1qny8jih?key=26f3f65d75e2b3ec018d42ddeff169f0" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_93" bn="93"><i class="fas fa-gamepad"></i> BET 93 <span class="click-counter" id="count_93">0</span></a>
+        <!-- 94 -->
+        <a href="https://widthwidowzoology.com/v6sd22x1yn?key=c54ab60a3a0f40016bd3e8ae243b785d" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_94" bn="94"><i class="fas fa-vr-cardboard"></i> BET 94 <span class="click-counter" id="count_94">0</span></a>
+        <!-- 95 -->
+        <a href="https://widthwidowzoology.com/xk55vbrqrv?key=f3ff706c05672a5ec15912c24a2a1209" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_95" bn="95"><i class="fas fa-headset"></i> BET 95 <span class="click-counter" id="count_95">0</span></a>
+        <!-- 96 -->
+        <a href="https://widthwidowzoology.com/jx9t8nc3d?key=389f2a635373a067c711a0bbe9879616" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_96" bn="96"><i class="fas fa-chart-line"></i> BET 96 <span class="click-counter" id="count_96">0</span></a>
+        <!-- 97 -->
+        <a href="https://widthwidowzoology.com/z2m38pjv?key=6486b70f3454f1ab3c7b86a285bb81cc" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_97" bn="97"><i class="fas fa-chart-bar"></i> BET 97 <span class="click-counter" id="count_97">0</span></a>
+        <!-- 98 -->
+        <a href="https://widthwidowzoology.com/b0k7zw6ve?key=c36991ea791eca37069ebf19f04bd59e" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_98" bn="98"><i class="fas fa-chart-pie"></i> BET 98 <span class="click-counter" id="count_98">0</span></a>
+        <!-- 99 -->
+        <a href="https://widthwidowzoology.com/j7vcf61qxn?key=3ff91ccbfa7a15e583397dafb2887182" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_99" bn="99"><i class="fas fa-percent"></i> BET 99 <span class="click-counter" id="count_99">0</span></a>
+        <!-- 100 -->
+        <a href="https://widthwidowzoology.com/zmdnnp4h?key=93e769f2950554bbe533247a32e29e5a" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_100" bn="100"><i class="fas fa-calculator"></i> BET 100 <span class="click-counter" id="count_100">0</span></a>
+        <!-- 101 -->
+        <a href="https://widthwidowzoology.com/meyf54w1x?key=a09a74e4bc4c899e16bfcece1795e6de" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_101" bn="101"><i class="fas fa-clock"></i> BET 101 <span class="click-counter" id="count_101">0</span></a>
+        <!-- 102 -->
+        <a href="https://widthwidowzoology.com/mx6ynqn9?key=f1ee3aac822e638f397993ff4a9c0c53" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_102" bn="102"><i class="fas fa-hourglass-half"></i> BET 102 <span class="click-counter" id="count_102">0</span></a>
+        <!-- 103 -->
+        <a href="https://widthwidowzoology.com/ezcp8d6n?key=c8c8b1c792b222eda8c087371e5a8a7f" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_103" bn="103"><i class="fas fa-hourglass-end"></i> BET 103 <span class="click-counter" id="count_103">0</span></a>
+        <!-- 104 -->
+        <a href="https://widthwidowzoology.com/ie5hcns9hf?key=ad06280b8fb67f1bda20ebf4d97e2478" target="_blank" rel="noopener noreferrer" class="offer-btn" id="btn_104" bn="104"><i class="fas fa-flag-checkered"></i> BET 104 <span class="click-counter" id="count_104">0</span></a>
+    </div>
+
+    <div class="card-footer">
+        <span><i class="far fa-clock"></i> 104 active betting deals · instant access</span>
+        <div class="reset-link" onclick="resetAllCounters()"><i class="fas fa-arrows-rotate"></i> reset counters</div>
+    </div>
+</div>
+
+<script>
+    const btnsTotal = 104;
+    let cMap = {};
+    for (let i=1; i<=btnsTotal; i++) cMap['btn_'+i] = 0;
+    const STORE = 'ufroo_104_v1', RKEY = 'auto_rounds_ufroo_v1';
+
+    function lCounts() { try { let s=localStorage.getItem(STORE); if(s) { let p=JSON.parse(s); for(let k in cMap) if(typeof p[k]==='number') cMap[k]=p[k]; } } catch(e){} }
+    function sCounts() { try { localStorage.setItem(STORE, JSON.stringify(cMap)); } catch(e){} }
+    function total() { return Object.values(cMap).reduce((a,b)=>a+b,0); }
+
+    function refresh() {
+        document.getElementById('globalCounter').innerText = total();
+        for (let i=1; i<=btnsTotal; i++) {
+            let cs = document.getElementById('count_'+i), b = document.getElementById('btn_'+i);
+            if (cs && b) { let v = cMap['btn_'+i]||0; cs.innerText = v; v>0 ? b.classList.add('clicked') : b.classList.remove('clicked'); }
+        }
+    }
+
+    function inc(id) { if(cMap.hasOwnProperty(id)) { cMap[id]++; refresh(); sCounts(); } }
+
+    function resetAllCounters() { for (let i=1; i<=btnsTotal; i++) cMap['btn_'+i] = 0; refresh(); sCounts(); }
+
+    function openPopupSettings() {
+        let a = window.open('about:blank', '_blank');
+        if(a){a.document.write(`<html><head><title>Allow Popups</title><style>body{font-family:sans-serif;background:#2e0b0b;color:#fff;text-align:center;padding:40px;line-height:1.8;}.steps{background:#4e1b1b;padding:25px;border-radius:15px;display:inline-block;text-align:left;margin:20px;}.highlight{color:#ffd166;font-weight:bold;}code{background:#000;padding:4px 10px;border-radius:6px;color:#ffd166;font-size:16px;}button{background:#ff9d6b;color:#2e0b0b;border:none;padding:12px 30px;border-radius:30px;font-size:16px;cursor:pointer;margin-top:15px;font-weight:bold;}</style></head><body><h1>🔓 Allow Popups</h1><div class="steps"><p>📋 <span class="highlight">Step 1:</span> Copy URL:</p><p><code>chrome://settings/content/popups</code></p><p>📌 <span class="highlight">Step 2:</span> Open new tab (Ctrl+T)</p><p>📎 <span class="highlight">Step 3:</span> Paste & Enter</p><p>🔍 <span class="highlight">Step 4:</span> Allow this site</p><p>🔄 <span class="highlight">Step 5:</span> Come back & START</p></div><button onclick="navigator.clipboard.writeText('chrome://settings/content/popups').then(function(){}).catch(function(){})">📋 COPY SETTINGS URL</button></body></html>`);a.document.close();}
+    }
+
+    function gRounds() { try { let s=localStorage.getItem(RKEY); return s ? parseInt(s) : 3; } catch(e){ return 3; } }
+    function saveRoundSetting() {
+        let inp = document.getElementById('roundInput'), cf = document.getElementById('saveConfirm');
+        let v = parseInt(inp.value); if(isNaN(v)||v<1) v=1; if(v>100) v=100;
+        inp.value = v; localStorage.setItem(RKEY, v);
+        document.getElementById('roundDisplay').innerText = v;
+        cf.innerText = '✅ Saved: '+v+' round(s)'; setTimeout(()=>cf.innerText='',2000);
+    }
+    function loadRounds() { let r = gRounds(); document.getElementById('roundInput').value = r; document.getElementById('roundDisplay').innerText = r; }
+
+    let running = false;
+    function startAutoClick() {
+        if(running){alert('⚠️ Already running!');return;}
+        let btns = document.querySelectorAll('.offer-btn');
+        if(!btns.length){alert('❌ No buttons!');return;}
+        let rds = gRounds(), all = btns.length * rds;
+        let st = document.getElementById('autoStatus'), sBtn = document.getElementById('autoClickBtn');
+        running = true; sBtn.disabled = true; sBtn.textContent = '⏳ CLICKING...';
+        let cur = 0, round = 1, idx = 0;
+        st.textContent = '🔄 Round 1/'+rds+' · 0/'+all;
+        let t = setInterval(() => {
+            if(round>rds){clearInterval(t);st.textContent='✅ DONE! '+all+' clicks ('+btns.length+'×'+rds+')';sBtn.disabled=false;sBtn.textContent='🚀 START AUTO CLICK';running=false;return;}
+            if(idx>=btns.length){round++;idx=0;if(round>rds)return;st.textContent='🔄 Round '+round+'/'+rds+' · '+cur+'/'+all;return;}
+            let b=btns[idx],bid=b.id,url=b.href||b.getAttribute('href');
+            if(url){let a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';document.body.appendChild(a);a.click();document.body.removeChild(a);cur++;if(bid&&cMap.hasOwnProperty(bid))inc(bid);st.textContent='🔄 R'+round+'/'+rds+' · #'+cur+'/'+all+' ✅';}
+            else{cur++;st.textContent='🔄 R'+round+'/'+rds+' · #'+cur+'/'+all+' ⚠️';}
+            idx++;
+        },2000);
+    }
+
+    for(let i=1;i<=btnsTotal;i++){let b=document.getElementById('btn_'+i);if(b)b.addEventListener('click',()=>inc('btn_'+i));}
+    lCounts();loadRounds();refresh();
+    console.log('✅ 104 ufroo btns | Rounds: '+gRounds());
+</script>
+</body>
+</html>
